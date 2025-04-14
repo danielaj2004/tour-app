@@ -15,11 +15,19 @@ const TourCard = ({ id, name, info, image, price, onRemove }) => {
           </div>
           <p>
             {readMore ? info : `${info.substring(0, 200)}...`}
-            <button className="read-more" onClick={() => setReadMore(!readMore)}>
+            <button 
+              className="read-more" 
+              onClick={() => setReadMore(!readMore)}
+              aria-label={readMore ? 'Show less information' : 'Read more information'}
+            >
               {readMore ? 'Show Less' : 'Read More'}
             </button>
           </p>
-          <button className="not-interested" onClick={() => onRemove(id)}>
+          <button 
+            className="not-interested" 
+            onClick={() => onRemove(id)}
+            aria-label={`Remove ${name} from the list`}
+          >
             Not Interested
           </button>
         </div>
@@ -27,4 +35,4 @@ const TourCard = ({ id, name, info, image, price, onRemove }) => {
     );
   };
   
-  export default TourCard;
+export default TourCard;
