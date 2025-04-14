@@ -14,11 +14,11 @@ const Gallery = ({ tours, setTours, onRemove }) => { // gallery component
             if (!response.ok) throw new Error('Failed to fetch tours');
             const data = await response.json();
             setTours(data);
-            setLoading(false); 
-        } catch (err) {
-          setError(err.message); 
-          setLoading(false); 
-        }
+            setLoading(false); // loading to false data after being fetched
+          } catch (err) {
+            setError(err.message); // setting error message
+            setLoading(false); // setting loading to false if error present
+          }
         }; 
         fetchTours();
     }, [setTours]);
